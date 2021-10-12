@@ -1,0 +1,709 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "Principal Accionista": {
+                "dni": 40404040,
+                "nombre": "juan paredez",
+                "edad": 24,
+                "ciudad": "Madrid",
+                "nivel estudio": "universitario",
+                "email": "juanpa24@correos.com",
+                "redes sociales": [
+                    {
+                        "instagram": "juanpa24"
+                    },
+                    {
+                        "twitter": "juanpa24"
+                    }
+                ],
+                "accionistas secundarios ": [
+                    {
+                        "accionista": {
+                            "dni": 40404040,
+                            "nombre": "dfdfdsfds",
+                            "edad": 87,
+                            "ciudad": "xxxxxx",
+                            "nivel estudio": "xxxxxxxxxx",
+                            "email": "xxxxx",
+                            "redes sociales": [
+                                {
+                                    "instagram": "juanpa24"
+                                },
+                                {
+                                    "twitter": "juanpa24"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "accionista": {
+                            "dni": 40404040,
+                            "nombre": "dfdfdsfds",
+                            "edad": 87,
+                            "ciudad": "xxxxxx",
+                            "nivel estudio": "xxxxxxxxxx",
+                            "email": "xxxxx",
+                            "redes sociales": [
+                                {
+                                    "instagram": "juanpa24"
+                                },
+                                {
+                                    "twitter": "juanpa24"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "viajes": [
+                    {
+                        "mundos": "Martes",
+                        "tipo": "Cientifico"
+                    }
+                ],
+                "aspiraciones": [
+                    {
+                        "mundos": "Jupiter",
+                        "tipo": "Militar"
+                    },
+                    {
+                        "mundos": "Martes",
+                        "tipo": "Espía"
+                    }
+                ]
+            }
+        }
+    ],
+    "required": [
+        "Principal Accionista"
+    ],
+    "properties": {
+        "Principal Accionista": {
+            "$id": "#/properties/Principal%20Accionista",
+            "type": "object",
+            "title": "The Principal Accionista schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "dni": 40404040,
+                    "nombre": "juan paredez",
+                    "edad": 24,
+                    "ciudad": "Madrid",
+                    "nivel estudio": "universitario",
+                    "email": "juanpa24@correos.com",
+                    "redes sociales": [
+                        {
+                            "instagram": "juanpa24"
+                        },
+                        {
+                            "twitter": "juanpa24"
+                        }
+                    ],
+                    "accionistas secundarios ": [
+                        {
+                            "accionista": {
+                                "dni": 40404040,
+                                "nombre": "dfdfdsfds",
+                                "edad": 87,
+                                "ciudad": "xxxxxx",
+                                "nivel estudio": "xxxxxxxxxx",
+                                "email": "xxxxx",
+                                "redes sociales": [
+                                    {
+                                        "instagram": "juanpa24"
+                                    },
+                                    {
+                                        "twitter": "juanpa24"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "accionista": {
+                                "dni": 40404040,
+                                "nombre": "dfdfdsfds",
+                                "edad": 87,
+                                "ciudad": "xxxxxx",
+                                "nivel estudio": "xxxxxxxxxx",
+                                "email": "xxxxx",
+                                "redes sociales": [
+                                    {
+                                        "instagram": "juanpa24"
+                                    },
+                                    {
+                                        "twitter": "juanpa24"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "viajes": [
+                        {
+                            "mundos": "Martes",
+                            "tipo": "Cientifico"
+                        }
+                    ],
+                    "aspiraciones": [
+                        {
+                            "mundos": "Jupiter",
+                            "tipo": "Militar"
+                        },
+                        {
+                            "mundos": "Martes",
+                            "tipo": "Espía"
+                        }
+                    ]
+                }
+            ],
+            "required": [
+                "dni",
+                "nombre",
+                "edad",
+                "ciudad",
+                "nivel estudio",
+                "email",
+                "redes sociales",
+                "accionistas secundarios ",
+                "viajes",
+                "aspiraciones"
+            ],
+            "properties": {
+                "dni": {
+                    "$id": "#/properties/Principal%20Accionista/properties/dni",
+                    "type": "integer",
+                    "title": "The dni schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        40404040
+                    ]
+                },
+                "nombre": {
+                    "$id": "#/properties/Principal%20Accionista/properties/nombre",
+                    "type": "string",
+                    "title": "The nombre schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "juan paredez"
+                    ]
+                },
+                "edad": {
+                    "$id": "#/properties/Principal%20Accionista/properties/edad",
+                    "type": "integer",
+                    "title": "The edad schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        24
+                    ]
+                },
+                "ciudad": {
+                    "$id": "#/properties/Principal%20Accionista/properties/ciudad",
+                    "type": "string",
+                    "title": "The ciudad schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "Madrid"
+                    ]
+                },
+                "nivel estudio": {
+                    "$id": "#/properties/Principal%20Accionista/properties/nivel%20estudio",
+                    "type": "string",
+                    "title": "The nivel estudio schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "universitario"
+                    ]
+                },
+                "email": {
+                    "$id": "#/properties/Principal%20Accionista/properties/email",
+                    "type": "string",
+                    "title": "The email schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "juanpa24@correos.com"
+                    ]
+                },
+                "redes sociales": {
+                    "$id": "#/properties/Principal%20Accionista/properties/redes%20sociales",
+                    "type": "array",
+                    "title": "The redes sociales schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": [],
+                    "examples": [
+                        [
+                            {
+                                "instagram": "juanpa24"
+                            },
+                            {
+                                "twitter": "juanpa24"
+                            }
+                        ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                        "$id": "#/properties/Principal%20Accionista/properties/redes%20sociales/items",
+                        "anyOf": [
+                            {
+                                "$id": "#/properties/Principal%20Accionista/properties/redes%20sociales/items/anyOf/0",
+                                "type": "object",
+                                "title": "The first anyOf schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "instagram": "juanpa24"
+                                    }
+                                ],
+                                "required": [
+                                    "instagram"
+                                ],
+                                "properties": {
+                                    "instagram": {
+                                        "$id": "#/properties/Principal%20Accionista/properties/redes%20sociales/items/anyOf/0/properties/instagram",
+                                        "type": "string",
+                                        "title": "The instagram schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "juanpa24"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true
+                            },
+                            {
+                                "$id": "#/properties/Principal%20Accionista/properties/redes%20sociales/items/anyOf/1",
+                                "type": "object",
+                                "title": "The second anyOf schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "twitter": "juanpa24"
+                                    }
+                                ],
+                                "required": [
+                                    "twitter"
+                                ],
+                                "properties": {
+                                    "twitter": {
+                                        "$id": "#/properties/Principal%20Accionista/properties/redes%20sociales/items/anyOf/1/properties/twitter",
+                                        "type": "string",
+                                        "title": "The twitter schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "juanpa24"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true
+                            }
+                        ]
+                    }
+                },
+                "accionistas secundarios ": {
+                    "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20",
+                    "type": "array",
+                    "title": "The accionistas secundarios  schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": [],
+                    "examples": [
+                        [
+                            {
+                                "accionista": {
+                                    "dni": 40404040,
+                                    "nombre": "dfdfdsfds",
+                                    "edad": 87,
+                                    "ciudad": "xxxxxx",
+                                    "nivel estudio": "xxxxxxxxxx",
+                                    "email": "xxxxx",
+                                    "redes sociales": [
+                                        {
+                                            "instagram": "juanpa24"
+                                        },
+                                        {
+                                            "twitter": "juanpa24"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "accionista": {
+                                    "dni": 40404040,
+                                    "nombre": "dfdfdsfds",
+                                    "edad": 87,
+                                    "ciudad": "xxxxxx",
+                                    "nivel estudio": "xxxxxxxxxx",
+                                    "email": "xxxxx",
+                                    "redes sociales": [
+                                        {
+                                            "instagram": "juanpa24"
+                                        },
+                                        {
+                                            "twitter": "juanpa24"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                        "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items",
+                        "anyOf": [
+                            {
+                                "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0",
+                                "type": "object",
+                                "title": "The first anyOf schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "accionista": {
+                                            "dni": 40404040,
+                                            "nombre": "dfdfdsfds",
+                                            "edad": 87,
+                                            "ciudad": "xxxxxx",
+                                            "nivel estudio": "xxxxxxxxxx",
+                                            "email": "xxxxx",
+                                            "redes sociales": [
+                                                {
+                                                    "instagram": "juanpa24"
+                                                },
+                                                {
+                                                    "twitter": "juanpa24"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "required": [
+                                    "accionista"
+                                ],
+                                "properties": {
+                                    "accionista": {
+                                        "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista",
+                                        "type": "object",
+                                        "title": "The accionista schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": {},
+                                        "examples": [
+                                            {
+                                                "dni": 40404040,
+                                                "nombre": "dfdfdsfds",
+                                                "edad": 87,
+                                                "ciudad": "xxxxxx",
+                                                "nivel estudio": "xxxxxxxxxx",
+                                                "email": "xxxxx",
+                                                "redes sociales": [
+                                                    {
+                                                        "instagram": "juanpa24"
+                                                    },
+                                                    {
+                                                        "twitter": "juanpa24"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "required": [
+                                            "dni",
+                                            "nombre",
+                                            "edad",
+                                            "ciudad",
+                                            "nivel estudio",
+                                            "email",
+                                            "redes sociales"
+                                        ],
+                                        "properties": {
+                                            "dni": {
+                                                "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/dni",
+                                                "type": "integer",
+                                                "title": "The dni schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": 0,
+                                                "examples": [
+                                                    40404040
+                                                ]
+                                            },
+                                            "nombre": {
+                                                "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/nombre",
+                                                "type": "string",
+                                                "title": "The nombre schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": "",
+                                                "examples": [
+                                                    "dfdfdsfds"
+                                                ]
+                                            },
+                                            "edad": {
+                                                "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/edad",
+                                                "type": "integer",
+                                                "title": "The edad schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": 0,
+                                                "examples": [
+                                                    87
+                                                ]
+                                            },
+                                            "ciudad": {
+                                                "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/ciudad",
+                                                "type": "string",
+                                                "title": "The ciudad schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": "",
+                                                "examples": [
+                                                    "xxxxxx"
+                                                ]
+                                            },
+                                            "nivel estudio": {
+                                                "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/nivel%20estudio",
+                                                "type": "string",
+                                                "title": "The nivel estudio schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": "",
+                                                "examples": [
+                                                    "xxxxxxxxxx"
+                                                ]
+                                            },
+                                            "email": {
+                                                "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/email",
+                                                "type": "string",
+                                                "title": "The email schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": "",
+                                                "examples": [
+                                                    "xxxxx"
+                                                ]
+                                            },
+                                            "redes sociales": {
+                                                "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/redes%20sociales",
+                                                "type": "array",
+                                                "title": "The redes sociales schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": [],
+                                                "examples": [
+                                                    [
+                                                        {
+                                                            "instagram": "juanpa24"
+                                                        },
+                                                        {
+                                                            "twitter": "juanpa24"
+                                                        }
+                                                    ]
+                                                ],
+                                                "additionalItems": true,
+                                                "items": {
+                                                    "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/redes%20sociales/items",
+                                                    "anyOf": [
+                                                        {
+                                                            "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/redes%20sociales/items/anyOf/0",
+                                                            "type": "object",
+                                                            "title": "The first anyOf schema",
+                                                            "description": "An explanation about the purpose of this instance.",
+                                                            "default": {},
+                                                            "examples": [
+                                                                {
+                                                                    "instagram": "juanpa24"
+                                                                }
+                                                            ],
+                                                            "required": [
+                                                                "instagram"
+                                                            ],
+                                                            "properties": {
+                                                                "instagram": {
+                                                                    "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/redes%20sociales/items/anyOf/0/properties/instagram",
+                                                                    "type": "string",
+                                                                    "title": "The instagram schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": "",
+                                                                    "examples": [
+                                                                        "juanpa24"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "additionalProperties": true
+                                                        },
+                                                        {
+                                                            "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/redes%20sociales/items/anyOf/1",
+                                                            "type": "object",
+                                                            "title": "The second anyOf schema",
+                                                            "description": "An explanation about the purpose of this instance.",
+                                                            "default": {},
+                                                            "examples": [
+                                                                {
+                                                                    "twitter": "juanpa24"
+                                                                }
+                                                            ],
+                                                            "required": [
+                                                                "twitter"
+                                                            ],
+                                                            "properties": {
+                                                                "twitter": {
+                                                                    "$id": "#/properties/Principal%20Accionista/properties/accionistas%20secundarios%20/items/anyOf/0/properties/accionista/properties/redes%20sociales/items/anyOf/1/properties/twitter",
+                                                                    "type": "string",
+                                                                    "title": "The twitter schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": "",
+                                                                    "examples": [
+                                                                        "juanpa24"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "additionalProperties": true
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "additionalProperties": true
+                                    }
+                                },
+                                "additionalProperties": true
+                            }
+                        ]
+                    }
+                },
+                "viajes": {
+                    "$id": "#/properties/Principal%20Accionista/properties/viajes",
+                    "type": "array",
+                    "title": "The viajes schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": [],
+                    "examples": [
+                        [
+                            {
+                                "mundos": "Martes",
+                                "tipo": "Cientifico"
+                            }
+                        ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                        "$id": "#/properties/Principal%20Accionista/properties/viajes/items",
+                        "anyOf": [
+                            {
+                                "$id": "#/properties/Principal%20Accionista/properties/viajes/items/anyOf/0",
+                                "type": "object",
+                                "title": "The first anyOf schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "mundos": "Martes",
+                                        "tipo": "Cientifico"
+                                    }
+                                ],
+                                "required": [
+                                    "mundos",
+                                    "tipo"
+                                ],
+                                "properties": {
+                                    "mundos": {
+                                        "$id": "#/properties/Principal%20Accionista/properties/viajes/items/anyOf/0/properties/mundos",
+                                        "type": "string",
+                                        "title": "The mundos schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "Martes"
+                                        ]
+                                    },
+                                    "tipo": {
+                                        "$id": "#/properties/Principal%20Accionista/properties/viajes/items/anyOf/0/properties/tipo",
+                                        "type": "string",
+                                        "title": "The tipo schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "Cientifico"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true
+                            }
+                        ]
+                    }
+                },
+                "aspiraciones": {
+                    "$id": "#/properties/Principal%20Accionista/properties/aspiraciones",
+                    "type": "array",
+                    "title": "The aspiraciones schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": [],
+                    "examples": [
+                        [
+                            {
+                                "mundos": "Jupiter",
+                                "tipo": "Militar"
+                            },
+                            {
+                                "mundos": "Martes",
+                                "tipo": "Espía"
+                            }
+                        ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                        "$id": "#/properties/Principal%20Accionista/properties/aspiraciones/items",
+                        "anyOf": [
+                            {
+                                "$id": "#/properties/Principal%20Accionista/properties/aspiraciones/items/anyOf/0",
+                                "type": "object",
+                                "title": "The first anyOf schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "mundos": "Jupiter",
+                                        "tipo": "Militar"
+                                    }
+                                ],
+                                "required": [
+                                    "mundos",
+                                    "tipo"
+                                ],
+                                "properties": {
+                                    "mundos": {
+                                        "$id": "#/properties/Principal%20Accionista/properties/aspiraciones/items/anyOf/0/properties/mundos",
+                                        "type": "string",
+                                        "title": "The mundos schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "Jupiter"
+                                        ]
+                                    },
+                                    "tipo": {
+                                        "$id": "#/properties/Principal%20Accionista/properties/aspiraciones/items/anyOf/0/properties/tipo",
+                                        "type": "string",
+                                        "title": "The tipo schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "Militar"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true
+                            }
+                        ]
+                    }
+                }
+            },
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": true
+}

@@ -1,0 +1,150 @@
+ESQUEMA RELACIONAL:
+CREATE TABLE Agencias(
+nombre varchar(45),
+personal int UNSIGNED NOT NULL,
+tipo varchar(45) NOT NULL,
+CONSTRAINT pk_agencias PRIMARY KEY(nombre));
+
+CREATE TABLE Publicas(
+nombre varchar(45),
+nombre_e varchar(45) NOT NULL,
+CONSTRAINT pk_publica PRIMARY KEY(nombre),
+CONSTRAINT fk_publica FOREIGN KEY(nombre) REFERENCES Agencias(nombre));
+
+CREATE INDEX idx_nombre_e ON Publicas(nombre_e) USING HASH;
+
+CREATE TABLE Privadas(
+nombre varchar(45),
+nombre_publica varchar(45) NOT NULL,
+CONSTRAINT pk_publica PRIMARY KEY(nombre),
+CONSTRAINT fk_publica_agencia FOREIGN KEY(nombre) REFERENCES Agencias(nombre),
+CONSTRAINT fk_publica_supervisa FOREIGN KEY(nombre_publica) REFERENCES Publicas(nombre_e));
+
+CREATE TABLE Empresas(
+CIF varchar(45),
+nombre varchar(45) NOT NULL,
+capital decimal(9,2) UNSIGNED NOT NULL,
+CONSTRAINT pk_empresas PRIMARY KEY(CIF));
+
+CREATE TABLE Financia(
+nombre varchar(45),
+CIF varchar(45),
+porcentaje smallint NOT NULL,
+CONSTRAINT pk_financia PRIMARY KEY(nombre, CIF),
+CONSTRAINT fk_financia_privada FOREIGN KEY(nombre) REFERENCES Privadas(nombre),
+CONSTRAINT fk_financia_empresas FOREIGN KEY(CIF) REFERENCES Empresas(CIF));
+
+CREATE TABLE Clase_nave(
+prefijo varchar(45),
+nombre varchar(45) NOT NULL,
+CONSTRAINT pk_clase_nave PRIMARY KEY(prefijo));
+
+CREATE TABLE Naves(
+prefijo varchar(45),
+matricula varchar(10),
+mision varchar(45),
+nombre varchar(45),
+nombre_agencia_prop varchar(45),
+CONSTRAINT pk_naves PRIMARY KEY(prefijo, matricula),
+CONSTRAINT fk_clase_naves FOREIGN KEY(prefijo) REFERENCES Clase_nave(prefijo) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_naves_agencia_prop FOREIGN KEY(nombre_agencia_prop) REFERENCES Agencias(nombre)
+);
+CREATE INDEX idx_matricula ON Naves(matricula) USING HASH;
+
+
+CREATE TABLE Componentes(
+codigo smallint AUTO_INCREMENT,
+diametro decimal(5,2) UNSIGNED NOT NULL,
+peso decimal(5,2) UNSIGNED NOT NULL,
+prefijo varchar(45) NOT NULL,
+CONSTRAINT pk_componentes PRIMARY KEY(codigo),
+CONSTRAINT fk_componentes FOREIGN KEY(prefijo) REFERENCES Clase_nave(prefijo));
+
+CREATE TABLE Orbitas(
+excentricidad decimal(9,2),
+altura decimal(9,2),
+sentido enum('positivo', 'negativo'),
+geostacionario boolean,
+circular boolean /*HACEMOS TRIGGER PARA CHEQUEAR QUE SI excentricidad=0 => circular = true*/,
+CONSTRAINT pk_orbitas PRIMARY KEY(excentricidad, altura, sentido));
+CREATE INDEX idx_altura ON Orbitas(altura) USING BTREE;
+CREATE INDEX idx_sentido ON Orbitas(sentido) USING BTREE;
+DELIMITER //
+CREATE TRIGGER verificar_excent_orbita BEFORE INSERT on Orbitas for each row
+begin
+	IF (new.excentricidad = 0) then
+		SET new.circular= true;
+	ELSE
+		SET new.circular= false;
+	end IF;
+end
+//
+DELIMITER ;
+
+CREATE TABLE Basuras(
+id_basura int AUTO_INCREMENT,
+velocidad decimal(9,2) NOT NULL,
+tamaño decimal(9,2) NOT NULL,
+peso decimal(9,2) NOT NULL,
+matricula varchar(10),
+excentricidad_orb decimal(9,2) NOT NULL,
+altura_orb decimal(9,2) NOT NULL,
+sentido_orb enum(‘positivo’, ‘negativo’) NOT NULL,
+CONSTRAINT pk_basuras PRIMARY KEY(id_basura),
+CONSTRAINT fk_basuras FOREIGN KEY(matricula) REFERENCES Naves(matricula),
+CONSTRAINT fk_posicion_orb FOREIGN KEY(excentricidad_orb,altura_orb,sentido_orb) REFERENCES Orbitas(excentricidad,altura,sentido));
+
+CREATE TABLE Posiciones(
+id_basura  int,
+altura  decimal(9,2) NOT NULL,
+fecha_pos datetime NOT NULL,
+sentido enum(‘positivo’, ‘negativo’),
+excentricidad decimal(9,2) NOT NULL,
+CONSTRAINT pk_posiciones PRIMARY KEY(id_basura, fecha_pos),
+CONSTRAINT fk_posiciones FOREIGN KEY(id_basura) REFERENCES Basuras(id_basura) ON DELETE CASCADE ON UPDATE CASCADE);
+
+CREATE TABLE Lanza(
+fecha_lanzamiento DATETIME NOT NULL,
+nombre_agencia varchar(45),
+excentricidad decimal(9,2),
+altura decimal(9,2),
+sentido  enum(‘positivo’, ‘negativo’),
+matricula varchar(10),
+CONSTRAINT pk_lanza PRIMARY KEY(nombre_agencia, excentricidad, altura, sentido, matricula),
+CONSTRAINT fk_lanza_nombre FOREIGN KEY(nombre_agencia) REFERENCES Agencias(nombre),
+CONSTRAINT fk_lanza_excentricidad FOREIGN KEY(excentricidad) REFERENCES Orbitas(excentricidad),
+CONSTRAINT fk_lanza_altura FOREIGN KEY(altura) REFERENCES Orbitas(altura),
+CONSTRAINT fk_lanza_sentido FOREIGN KEY(sentido) REFERENCES Orbitas(sentido),
+CONSTRAINT fk_lanza_matricula FOREIGN KEY(matricula) REFERENCES Naves(matricula));
+
+CREATE TABLE deriva(
+basura_padre  int,
+basura_hijo int,
+CONSTRAINT pk_deriva PRIMARY KEY(basura_padre,basura_hijo),
+CONSTRAINT fk_deriva_padre FOREIGN KEY(basura_padre) REFERENCES Basuras(id_basura),
+CONSTRAINT fk_deriva_hijo FOREIGN KEY(basura_hijo) REFERENCES Basuras(id_basura));
+
+CREATE TABLE esta(
+fecha_ini DATE,
+fecha_fin DATE,
+excentricidad decimal(9,2),
+altura decimal(9,2),
+sentido  enum(‘positivo’, ‘negativo’),
+matricula varchar(10) NOT NULL,
+CONSTRAINT pk_esta PRIMARY KEY(matricula, excentricidad, altura, sentido),
+CONSTRAINT fk_esta_excentricidad FOREIGN KEY(excentricidad) REFERENCES Orbitas(excentricidad),
+CONSTRAINT fk_esta_altura FOREIGN KEY(altura) REFERENCES Orbitas(altura),
+CONSTRAINT fk_esta_sentido FOREIGN KEY(sentido) REFERENCES Orbitas(sentido),
+CONSTRAINT fk_esta_matricula FOREIGN KEY(matricula) REFERENCES Naves(matricula));
+
+CREATE TABLE Tripulantes(
+nombre varchar(40) NOT NULL,
+CONSTRAINT pk_nom_tripulantes PRIMARY KEY (nombre));
+
+CREATE TABLE Tiene(
+matricula varchar(10),
+nombre_trip varchar(40),
+CONSTRAINT pk_nave_tiene_trip PRIMARY KEY (matricula,nombre_trip),
+CONSTRAINT fk_tiene_matricula FOREIGN KEY(matricula) REFERENCES Naves(matricula),
+CONSTRAINT fk_tiene_nombre_trip FOREIGN KEY(nombre_trip) REFERENCES Tripulantes(nombre)
+);
